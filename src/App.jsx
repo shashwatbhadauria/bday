@@ -1,6 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import SecondSlide from "./SecondSlide.jsx";
 
+// Import all assets
+import rotAudio from './assets/rot.mp3'
+import parrotImg from './assets/parrot.jpg'
+import bowImg from './assets/bow.jpg'
+import dogImg from './assets/dog.jpg'
+import cakeImg from './assets/cake.jpg'
+import boopImg from './assets/boop.jpg'
+
 const FLOWERS = [
   "🌻",
   "🪻",
@@ -91,16 +99,29 @@ function App() {
     }
   }, [audioReady]);
 
-  const handleAudioStart = () => {
-    if (audioRef.current) {
-      audioRef.current.play();
+  const handleAudioStart = async () => {
+    try {
+      // Create audio element dynamically
+      const audio = new Audio(rotAudio);
+      audio.loop = true;
+      
+      // Try to play
+      await audio.play();
+      
+      // Store reference for later use
+      audioRef.current = audio;
+      setAudioReady(true);
+    } catch (error) {
+      console.log("Audio playback failed:", error);
+      // Still show the content even if audio fails
+      setAudioReady(true);
     }
-    setAudioReady(true);
   };
 
   const goToNextSlide = () => {
     if (audioRef.current) {
       audioRef.current.pause();
+      audioRef.current = null;
     }
     setCurrentSlide(1);
   };
@@ -108,7 +129,14 @@ function App() {
   if (!audioReady) {
     return (
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        <audio ref={audioRef} src="/rot.mp3" loop style={{ display: 'none' }} />
+        <style>
+          {`
+            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+            .pixel-font {
+              font-family: 'Press Start 2P', cursive;
+            }
+          `}
+        </style>
         <div
           className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
           style={{
@@ -123,7 +151,7 @@ function App() {
         />
         <div className="relative z-10 text-center flex flex-col items-center justify-center space-y-4">
           <img
-            src="/parrot.jpg"
+            src={parrotImg}
             alt="Parrot"
             className="object-cover shadow-lg border-2 border-white"
             style={{ width: '96px', height: '96px' }}
@@ -135,7 +163,7 @@ function App() {
             click here
           </button>
           <img
-            src="/bow.jpg"
+            src={bowImg}
             alt="Bow"
             className="object-cover shadow-lg border-2 border-white"
             style={{ width: '48px', height: '48px' }}
@@ -148,7 +176,6 @@ function App() {
   if (currentSlide === 0) {
     return (
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        <audio ref={audioRef} src="/rot.mp3" loop style={{ display: 'none' }} />
         <div
           className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
           style={{
@@ -170,7 +197,7 @@ function App() {
               </span>
             )}
             <img
-              src="/dog.jpg"
+              src={dogImg}
               alt="Dog"
               className="mx-4 w-20 h-20 object-cover animate-[customGrow_5.2s_ease-out]"
               style={{ maxWidth: "96px", maxHeight: "96px" }}
@@ -208,7 +235,7 @@ function App() {
           
           <div className="mt-8 mb-8">
             <img
-              src="/cake.jpg"
+              src={cakeImg}
               alt="Birthday Cake"
               className="object-cover shadow-lg border-2 border-white"
               style={{ width: '96px', height: '96px' }}
@@ -223,7 +250,7 @@ function App() {
               <div className="flex items-center space-x-2">
                 <span className="text-lg font-bold italic text-purple-600">boop here for more</span>
                 <img
-                  src="/boop.jpg"
+                  src={boopImg}
                   alt="Boop"
                   style={{ width: '40px', height: '40px' }}
                 />

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './SecondSlide.css';
 import ThirdSlide from './ThirdSlide.jsx';
 
+// Import assets
+import catsVideo from './assets/cats.mp4'
+import boopImg from './assets/boop.jpg'
+
 const SecondSlide = () => {
   const [showNext, setShowNext] = useState(false);
   const [showThirdSlide, setShowThirdSlide] = useState(false);
@@ -31,7 +35,7 @@ const SecondSlide = () => {
         </p>
         
         <video
-          src="/cats.mp4"
+          src={catsVideo}
           controls
           autoPlay
           loop
@@ -50,7 +54,7 @@ const SecondSlide = () => {
             <div className="flex items-center space-x-2">
               <span className="text-lg font-bold italic text-purple-600">boop here for more</span>
               <img
-                src="/boop.jpg"
+                src={boopImg}
                 alt="Boop"
                 style={{ width: '40px', height: '40px' }}
               />

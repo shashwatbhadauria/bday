@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // Get the current path without the domain
+      var path = window.location.pathname;
+      // Redirect to the main index.html file
+      window.location.replace('/bday/index.html' + path.replace('/bday', ''));
+    </script>
+  </head>
+  <body>
+    This page will automatically redirect you to the main site.
+  </body>
+</html>

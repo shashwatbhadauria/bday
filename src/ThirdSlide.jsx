@@ -2,6 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import './SecondSlide.css';
 import FourthSlide from './FourthSlide.jsx';
 
+// Import assets// ✅ Correct
+import classicAudio from './assets/classic.mp3'
+import thinkImg from './assets/think.jpg'
+import monkeImg from './assets/monke.jpg'
+import harryImg from './assets/harry.jpg'
+import sabrinaImg from './assets/sabrina.jpg'
+import taylorImg from './assets/taylor.jpg'
+import boopImg from './assets/boop.jpg'
+
 const choices = [
   { name: 'rock', emoji: '✊' },
   { name: 'paper', emoji: '✋' },
@@ -35,7 +44,7 @@ const ThirdSlide = () => {
 
     setTimeout(() => {
       const user = choices.find(c => c.name === choiceName);
-      const computer = choices[Math.floor(Math.random() * choices.length)]; // Now always random
+      const computer = choices[Math.floor(Math.random() * choices.length)]; 
       
       let newResult;
       if (user.name === computer.name) {
@@ -74,7 +83,7 @@ const ThirdSlide = () => {
 
   return (
     <div className="second-slide-container">
-      <audio ref={audioRef} src="/classic.mp3" loop style={{ display: 'none' }} />
+      <audio ref={audioRef} src={classicAudio} loop style={{ display: 'none' }} />
       
       <div className="content">
         <h2 className="text-5xl font-bold italic text-purple-600 mb-8 drop-shadow-lg text-center">
@@ -104,7 +113,7 @@ const ThirdSlide = () => {
               <div className="text-center">
                 <p className="text-xl font-semibold mb-2 text-gray-800">you</p>
                 {isChoosing ? (
-                  <img src="/think.jpg" alt="Thinking" style={{ width: '120px', height: '120px' }} />
+                  <img src={thinkImg} alt="Thinking" style={{ width: '120px', height: '120px' }} />
                 ) : (
                   <div className="text-8xl">{userChoice.emoji}</div>
                 )}
@@ -112,7 +121,7 @@ const ThirdSlide = () => {
               <div className="text-center">
                 <p className="text-xl font-semibold mb-2 text-gray-800">me</p>
                 {isChoosing ? (
-                  <img src="/monke.jpg" alt="Thinking monkey" style={{ width: '120px', height: '120px' }} />
+                  <img src={monkeImg} alt="Thinking monkey" style={{ width: '120px', height: '120px' }} />
                 ) : (
                   <div className="text-8xl">{computerChoice.emoji}</div>
                 )}
@@ -122,13 +131,13 @@ const ThirdSlide = () => {
               <div className="flex flex-col items-center">
                 <p className="text-purple-700 text-4xl mt-4 text-center">{result}</p>
                 {result === "✅✅fluke win!✅✅" && (
-                  <img src="/harry.jpg" alt="Harry" style={{ width: '200px', marginTop: '20px' }} />
+                  <img src={harryImg} alt="Harry" style={{ width: '200px', marginTop: '20px' }} />
                 )}
                 {result === "😡😡stop copying me😡😡" && (
-                  <img src="/sabrina.jpg" alt="Sabrina" style={{ width: '200px', marginTop: '20px' }} />
+                  <img src={sabrinaImg} alt="Sabrina" style={{ width: '200px', marginTop: '20px' }} />
                 )}
                 {result === "❌❌ez win for me❌❌" && (
-                  <img src="/taylor.jpg" alt="Taylor" style={{ width: '200px', marginTop: '20px' }} />
+                  <img src={taylorImg} alt="Taylor" style={{ width: '200px', marginTop: '20px' }} />
                 )}
               </div>
             )}
@@ -153,7 +162,7 @@ const ThirdSlide = () => {
                     boop here for more
                   </span>
                   <img
-                    src="/boop.jpg"
+                    src={boopImg}
                     alt="Boop"
                     style={{ width: "40px", height: "40px" }}
                   />

@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import './SecondSlide.css';
 import FifthSlide from './FifthSlide.jsx';
 
+// Import assets
+import wishVideo from './assets/wish.mp4'
+import img1 from './assets/1.jpg'
+import img2 from './assets/2.jpg'
+import img3 from './assets/3.jpg'
+
 const FourthSlide = () => {
   const [showFifthSlide, setShowFifthSlide] = useState(false);
 
@@ -17,7 +23,7 @@ const FourthSlide = () => {
     <div className="second-slide-container">
       <div className="content">
         <video
-          src="/wish.mp4"
+          src={wishVideo}
           controls
           loop
           autoPlay
@@ -34,7 +40,7 @@ const FourthSlide = () => {
           Your browser does not support the video tag.
         </video>
         
-        <div className="text-content mt-8">
+        <div className="text-content mt-8 flex flex-col items-center">
           <p className="text-center text-4xl font-bold text-purple-600 drop-shadow-lg">
             HAPPIEST BIRTHDAY!!! &lt;333333
           </p>
@@ -44,9 +50,9 @@ const FourthSlide = () => {
           
           {/* Container for the images */}
           <div className="flex justify-center space-x-4 mt-4">
-            <img src="/1.jpg" alt="Image 1" style={{ width: '100px', height: 'auto' }} />
-            <img src="/2.jpg" alt="Image 2" style={{ width: '100px', height: 'auto' }} />
-            <img src="/3.jpg" alt="Image 3" style={{ width: '100px', height: 'auto' }} />
+            <img src={img1} alt="Image 1" style={{ width: '100px', height: 'auto' }} />
+            <img src={img2} alt="Image 2" style={{ width: '100px', height: 'auto' }} />
+            <img src={img3} alt="Image 3" style={{ width: '100px', height: 'auto' }} />
           </div>
         </div>
       </div>
