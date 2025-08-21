@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* filepath: c:\Users\Pushpendra\Desktop\shashwat\good\src\index.css */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

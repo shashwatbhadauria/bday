@@ -1,0 +1,55 @@
+/* SecondSlide.css */
+.second-slide-container {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.second-slide-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(to right, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.8) 1px, transparent 1px),
+        radial-gradient(circle 500px at 20% 100%, rgba(139, 92, 246, 0.3), transparent),
+        radial-gradient(circle 500px at 100% 80%, rgba(59, 130, 246, 0.3), transparent);
+    background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%;
+}
+
+/* This is the key change */
+.second-slide-container .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers items horizontally */
+    justify-content: center; /* This centers items vertically */
+    height: 100vh; /* Make sure the content div takes up the full viewport height to enable centering */
+    width: 100vw;
+}
+/* SecondSlide.css */
+
+.video-top-container {
+    padding-top: 30px; /* Reduced from 50px */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+/* SecondSlide.css */
+
+/* ... (Your existing code) ... */
+
+.game-board {
+  border: 4px solid #f0f0f0;
+}
